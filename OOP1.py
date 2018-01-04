@@ -36,9 +36,11 @@ class developer(employee):
     
 class designer(employee):
     def __init__(self, fname, lname, salary, experiance, manager, effect_coefficient):
-        supper().__init__(self, fname, lname, salary, experiance, manager)
-    
-#anton = designer('Anton', 'Antonovich', 350, 2, 'Budkin')   
+        #supper().__init__(self, fname, lname, salary, experiance, manager)
+        employee.__init__(self, fname, lname, salary, experiance, manager)
+        self.effect_coefficient = effect_coefficient
+        
+anton = designer('Anton', 'Antonovich', 350, 2, 'Budkin', 1)   
 vasya = developer('Vasya', 'Pupkin', 300, 5, 'Budkin')
 petya = developer('Petro', 'Petrovich', 200, 3, 'Budkin')
 
