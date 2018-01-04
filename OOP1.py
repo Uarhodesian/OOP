@@ -18,26 +18,30 @@
  """
 
 class employee:
+    number_of_employee = 0
     def __init__(self, fname, lname, salary, experiance, manager):
         self.fname = fname
         self.lname = lname
         self.salary = salary
         self.experiance = experiance
         self.manager = manager
-    
+        employee.number_of_employee += 1
+    def fullname(self):
+        return '{} {}'.format(self.fname, self.lname)
     def __str__(self):
         return "Hi! I am an employee"
-
+vasya = employee('Vasya', 'Pupkin', 300, 5, 'Budkin')
+print(employee.number_of_employee)
 
 class developer(employee):
+
     def __str__(self):
         return "Hi! I am a developer"
 
 
 class designer(employee):
     def __init__(self, effect_coefficient):
-        super().__init__(self, fname, lname, salary, experiance, manager)
-        self.effect_coefficient = effect_coefficient
+        pass
 """
     def count_square(self):
         return pi*self.x*self.y
