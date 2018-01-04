@@ -47,29 +47,11 @@ petya = developer('Petro', 'Petrovich', 200, 3, 'Budkin')
 print(employee.number_of_employee)
 
 
-
-
-#d    
+  
 class manager(employee):
     def __init__(self, effect_coefficient):
         pass
 """
-    def count_square(self):
-        return pi*self.x*self.y
-
-    def __str__(self):
-        return "Hi from circle!"
-
-
-class Rectangle(Figure):
-    def count_square(self):
-        return self.x*self.y
-
-    def __str__(self):
-        return "Hi from rectangle!"
-
-k = [1, "a"]
-
 class SumError(Exception):
     def __init__(self, value):
         self.value = value
