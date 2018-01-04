@@ -16,7 +16,6 @@
 "@firstName@ @secondName@, manager:@manager secondName@, experiance:@experiance@"
 
  """
-
 class employee:
     number_of_employee = 0
     def __init__(self, fname, lname, salary, experiance, manager):
@@ -30,16 +29,26 @@ class employee:
         return '{} {}'.format(self.fname, self.lname)
     def __str__(self):
         return "Hi! I am an employee"
-vasya = employee('Vasya', 'Pupkin', 300, 5, 'Budkin')
-print(employee.number_of_employee)
 
 class developer(employee):
-
     def __str__(self):
         return "Hi! I am a developer"
-
-
+    
 class designer(employee):
+    def __init__(self, fname, lname, salary, experiance, manager, effect_coefficient):
+        supper().__init__(self, fname, lname, salary, experiance, manager)
+    
+#anton = designer('Anton', 'Antonovich', 350, 2, 'Budkin')   
+vasya = developer('Vasya', 'Pupkin', 300, 5, 'Budkin')
+petya = developer('Petro', 'Petrovich', 200, 3, 'Budkin')
+
+print(employee.number_of_employee)
+
+
+
+
+#d    
+class manager(employee):
     def __init__(self, effect_coefficient):
         pass
 """
