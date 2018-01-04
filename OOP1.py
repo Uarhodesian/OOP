@@ -41,19 +41,38 @@ class designer(employee):
         self.effect_coefficient = effect_coefficient
     def full_salary(self):
         self.salary = self.salary * self.effect_coefficient
-        
+
+class manager(employee):
+    def __init__(self, fname, lname, salary, experiance, manager, employees=None):
+        employee.__init__(self, fname, lname, salary, experiance, manager)
+        if employees is None:
+            self.employees = []
+        else:
+            self.employees = employees
+
+        def add_emp(self, emp):
+            if emp not in self.employees:
+                self.employees.append(emp)
+
+        def remove_emp(self, emp):
+            if emp in self.employees:
+                self.employees.remove(emp)
+
+        def print_emps(self):
+            for emp in self.employees:
+                print('--->'.emp.fullname())
+                
 anton = designer('Anton', 'Antonovich', 350, 2, 'Budkin', 1)   
 vasya = developer('Vasya', 'Pupkin', 300, 5, 'Budkin')
 petya = developer('Petro', 'Petrovich', 200, 3, 'Budkin')
 maria = designer('Maria', 'Antonovich', 200, 1, 'Budkin', 0.7)   
-
+Budkin = manager('Vasya', 'Budkin', 300, 10, 'Boss')
+zhuk = manager('Mykola', 'Zhuk', 500, 12, 'Boss')
 print(employee.number_of_employee)
 
 
   
-class manager(employee):
-    def __init__(self, effect_coefficient):
-        pass
+
 """
 class SumError(Exception):
     def __init__(self, value):
