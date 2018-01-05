@@ -29,6 +29,7 @@ class employee:
     def fullname(self):
         return '{} {}'.format(self.fname, self.lname)
     def full_salary(self):
+        ratio = 1
         if experiance > 2:
             self.salary = self.salary * self.effect_coefficient
         elif experiance > 5:
