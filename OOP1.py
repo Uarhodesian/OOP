@@ -15,7 +15,6 @@
    iiii) salary*1.1 if more than half of team members are developers.
  j) Redefine string representation for employee as follows:
 "@firstName@ @secondName@, manager:@manager secondName@, experiance:@experiance@"
-
  """
 class employee:
     number_of_employee = 0
