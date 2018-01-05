@@ -34,10 +34,8 @@ class employee:
             self.salary = self.salary * self.effect_coefficient
         elif experiance > 5:
             self.salary = self.salary * self.effect_coefficient
-
     def __repr__(self):
-        return "employee('{}','{}','{}')".format(self.fname, self.lname, self.experiance)
-            
+        return "employee('{}','{}','{}')".format(self.fname, self.lname, self.experiance)          
     def __str__(self):
         return "Hi! I am an employee"
 
@@ -72,6 +70,26 @@ class manager(employee):
         def print_emps(self):
             for emp in self.employees:
                 print('--->'.emp.fullname())
+
+class department(manager):
+    def __init__(self, fname, lname, manager=None):
+        employee.__init__(self, fname, lname)
+        if manager is None:
+            self.manager = []
+        else:
+            self.manager = manager
+
+        def add_man(self, man):
+            if man not in self.manager:
+                self.manager.append(man)
+
+        def remove_man(self, man):
+            if emp in self.manager:
+                self.manager.remove(man)
+
+        def print_man(man):
+            for man in self.manager:
+                print('--->'.man.fullname())
                 
 anton = designer('Anton', 'Antonovich', 350, 2, 'Budkin', 1)   
 vasya = developer('Vasya', 'Pupkin', 300, 5, 'Budkin')
