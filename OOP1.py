@@ -34,6 +34,9 @@ class employee:
             self.salary = self.salary * self.effect_coefficient
         elif experiance > 5:
             self.salary = self.salary * self.effect_coefficient
+
+    def __repr__(self):
+        return "employee('{}','{}','{}')".format(self.fname, self.lname, self.experiance)
             
     def __str__(self):
         return "Hi! I am an employee"
@@ -77,34 +80,4 @@ maria = designer('Maria', 'Antonovich', 200, 1, 'Budkin', 0.7)
 Budkin = manager('Vasya', 'Budkin', 300, 10, 'Boss')
 zhuk = manager('Mykola', 'Zhuk', 500, 12, 'Boss')
 print(employee.number_of_employee)
-
-
-  
-
-"""
-def double_sum(array):
-    try:
-        return summa(array)*2
-    except SumError as err:
-        print("Error occurred while trying to sum over: " + str(err))
-
-def summa(array):
-    try:
-        a = 0
-        print(a)
-        for i in array:
-            a = a+i
-            print(a)
-        return a
-    except TypeError:
-        raise SumError(array)
-
-circle = Circle(1, 2)
-dot = Dot(1, 2)
-print(dot.x, dot.y)
-print(dot)
-print("Figure square: " + str(dot.count_square()))
-print(circle)
-print(type(circle))
-double_sum(k)
-"""
+print(anton.__repr__())
