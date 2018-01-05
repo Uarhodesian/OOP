@@ -6,7 +6,8 @@
  d) Each manager has team of developers and designers.
  e) Department should have list of managers(which have their own teams)
  f) Department should be able to give salary (for each employee message: "@firstName@ @secondName@: got salary: @salaryValue@")
- g) Each employee gets the salary, defined in field Salary. If experiance of employee is > 2 years, he gets bonus + 200$, if experiance is > 5 years, he gets salary*1.2 + bonus 500
+ g) Each employee gets the salary, defined in field Salary. If experiance of employee is > 2 years, he gets bonus + 200$,
+    if experiance is > 5 years, he gets salary*1.2 + bonus 500
  h) Each designer gets the salary = salary*effCoeff
  i) Each manager gets salary +
    ii) 200$ if his team has >5 members
@@ -27,6 +28,12 @@ class employee:
         employee.number_of_employee += 1
     def fullname(self):
         return '{} {}'.format(self.fname, self.lname)
+    def full_salary(self):
+        if experiance > 2:
+            self.salary = self.salary * self.effect_coefficient
+        elif experiance > 5:
+            self.salary = self.salary * self.effect_coefficient
+            
     def __str__(self):
         return "Hi! I am an employee"
 
@@ -74,14 +81,6 @@ print(employee.number_of_employee)
   
 
 """
-class SumError(Exception):
-    def __init__(self, value):
-        self.value = value
-
-    def __str__(self):
-        return str(self.value)
-
-
 def double_sum(array):
     try:
         return summa(array)*2
