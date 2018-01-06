@@ -28,15 +28,15 @@ class employee:
     def fullname(self):
         return '{} {}'.format(self.fname, self.lname)
     def full_salary(self):     
-        ratio = 1
         if self.experiance > 5:
             self.salary = self.salary * 1.2 + 500
             return self.salary
         elif self.experiance > 2:
-            ratio = 1.2
-            self.salary = self.salary * ratio + 500
+            self.salary = self.salary  + 200
+            return self.salary
         else:
-            self.salary = self.salary * ratio
+            return self.salary
+        
     def __repr__(self):
         return "employee('{}','{}','{}')".format(self.fname, self.lname, self.experiance)          
     def __str__(self):
@@ -51,8 +51,9 @@ class designer(employee):
         #supper().__init__(self, fname, lname, salary, experiance, manager)
         employee.__init__(self, fname, lname, salary, experiance, manager)
         self.effect_coefficient = effect_coefficient
-    def full_salary(self):
+    def full_d_salary(self):
         self.salary = self.salary * self.effect_coefficient
+        return self.salary
 
 class manager(employee):
     def __init__(self, fname, lname, salary, experiance, manager, employees=None):
@@ -102,3 +103,6 @@ Budkin = manager('Vasya', 'Budkin', 300, 10, 'Boss')
 zhuk = manager('Mykola', 'Zhuk', 500, 12, 'Boss')
 print(employee.number_of_employee)
 print(anton.__repr__())
+print(anton.full_salary())
+print(Budkin.__repr__())
+print(Budkin.full_salary())
