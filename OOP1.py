@@ -51,7 +51,7 @@ class designer(employee):
         #supper().__init__(self, fname, lname, salary, experiance, manager)
         employee.__init__(self, fname, lname, salary, experiance, manager)
         self.effect_coefficient = effect_coefficient
-    def full_d_salary(self):
+    def full_salary(self):
         self.salary = self.salary * self.effect_coefficient
         return self.salary
 
@@ -63,17 +63,17 @@ class manager(employee):
         else:
             self.employees = employees
 
-        def add_emp(self, emp):
+    def add_emp(self, emp):
             if emp not in self.employees:
                 self.employees.append(emp)
 
-        def remove_emp(self, emp):
+    def remove_emp(self, emp):
             if emp in self.employees:
                 self.employees.remove(emp)
 
-        def print_emps(self):
-            for emp in self.employees:
-                print('--->'.emp.fullname())
+    def print_emp(self):
+            for employees in self.employees:
+                print('--->', employees)
 
 class department(manager):
     def __init__(self, fname, lname, manager=None):
@@ -99,7 +99,7 @@ anton = designer('Anton', 'Antonovich', 350, 2, 'Budkin', 1)
 vasya = developer('Vasya', 'Pupkin', 300, 5, 'Budkin')
 petya = developer('Petro', 'Petrovich', 200, 3, 'Budkin')
 maria = designer('Maria', 'Antonovich', 200, 1, 'Budkin', 0.7)   
-Budkin = manager('Vasya', 'Budkin', 300, 10, 'Boss')
+Budkin = manager('Vasya', 'Budkin', 300, 10, 'Boss', [vova, anton, petya, maria])
 zhuk = manager('Mykola', 'Zhuk', 500, 12, 'Boss')
 print(employee.number_of_employee)
 print(anton.__repr__())
