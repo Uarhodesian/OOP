@@ -27,12 +27,16 @@ class employee:
         employee.number_of_employee += 1
     def fullname(self):
         return '{} {}'.format(self.fname, self.lname)
-    def full_salary(self):
+    def full_salary(self):     
         ratio = 1
-        if experiance > 2:
-            self.salary = self.salary * self.effect_coefficient
-        elif experiance > 5:
-            self.salary = self.salary * self.effect_coefficient
+        if self.experiance > 5:
+            self.salary = self.salary * 1.2 + 500
+            return self.salary
+        elif self.experiance > 2:
+            ratio = 1.2
+            self.salary = self.salary * ratio + 500
+        else:
+            self.salary = self.salary * ratio
     def __repr__(self):
         return "employee('{}','{}','{}')".format(self.fname, self.lname, self.experiance)          
     def __str__(self):
@@ -89,7 +93,7 @@ class department(manager):
         def print_man(man):
             for man in self.manager:
                 print('--->'.man.fullname())
-                
+vova = developer('Vova', 'Pu', 300, 7, 'Budkin')                
 anton = designer('Anton', 'Antonovich', 350, 2, 'Budkin', 1)   
 vasya = developer('Vasya', 'Pupkin', 300, 5, 'Budkin')
 petya = developer('Petro', 'Petrovich', 200, 3, 'Budkin')
