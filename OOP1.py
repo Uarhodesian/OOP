@@ -56,7 +56,7 @@ class designer(employee):
         return self.salary
     def __str__(self):
         return "Hi! I am a designer"
-
+    
 class manager(employee):
     count_dev = 0
     count_des = 0
@@ -68,12 +68,12 @@ class manager(employee):
         else:
             self.employees = employees
           
-        if  isinstance(self.employees, employee):
-            count_des += 1                  
-        elif  isinstance(self.employees, employee):
-            count_dev += 1    
-    count_emp = count_des + count_dev
-    
+        if  isinstance(self.employees, designer):
+            self.employees.count_des += 1                  
+        elif  isinstance(self.employees, developer):
+            self.employees.count_dev += 1    
+    #count_emp = count_des + count_dev
+
     def add_emp(self, emp):
             if emp not in self.employees:
                 self.employees.append(emp)
@@ -85,8 +85,7 @@ class manager(employee):
     def print_emp(self):
             for employees in self.employees:
                 print('--->', employees)
-                print(manager.count_dev)
-                print(manager.count_des)
+
 
     def full_salary(self):     
         if self.experiance > 5:
@@ -97,7 +96,8 @@ class manager(employee):
             return self.salary
         else:
             return self.salary
-                
+
+             
 
 """class department(manager):
     def __init__(self, fname, lname, manager=None):
@@ -126,9 +126,10 @@ vova = developer('Vova', 'Pu', 300, 7, 'Budkin')
 anton = designer('Anton', 'Antonovich', 350, 2, 'Budkin', 1)   
 vasya = developer('Vasya', 'Pupkin', 300, 5, 'Budkin')
 petya = developer('Petro', 'Petrovich', 200, 3, 'Budkin')
-maria = designer('Maria', 'Antonovich', 200, 1, 'Budkin', 0.7)   
-Budkin = manager('Vasya', 'Budkin', 300, 10, 'Boss', [vova, anton, petya, maria])
-zhuk = manager('Mykola', 'Zhuk', 500, 12, 'Boss')
+maria = designer('Maria', 'Antonovich', 200, 1, 'Budkin', 0.7)        
+Budkin = manager('Vasya', 'Budkin', 300, 10, 'Boss', ['vova', 'anton', 'petya', 'maria'])
+zhuk = manager('Mykola', 'Zhuk', 500, 12, 'Boss')     
+
 print(employee.number_of_employee)
 print(anton.__repr__())
 print(anton.full_salary())
@@ -136,4 +137,5 @@ print(Budkin.__repr__())
 print(Budkin.full_salary())
 print(Budkin.count_dev)
 print(Budkin.count_des)
-print(Budkin.count_emp)
+print(Budkin.print_emp())
+#print(Budkin.count_emp)
