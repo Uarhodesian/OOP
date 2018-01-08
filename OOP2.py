@@ -15,7 +15,6 @@ class LinkedList:
 	def __init__(self):
 		self.head=node()
 
-
 	def put(self,data):
 		new_node=node()
 		cur=self.head
@@ -31,12 +30,24 @@ class LinkedList:
 			cur=cur.next
 		return total 
 
+	def get(self, index):
+		current = self.head 
+		count = 0 
+		while (current):
+			if (count == index):
+				return current.data
+			count += 1
+			current = current.next
+		assert(false)
+		return 0;
+
+
+
 
 if __name__=='__main__':
 
 	llist = LinkedList()
 
-	# Use push() to construct below list
 	# 1->12->1->4->1
 	llist.put(1)
 	llist.put(4)
