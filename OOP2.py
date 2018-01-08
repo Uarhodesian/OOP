@@ -7,75 +7,43 @@
  e) size()
  """
 
-class employee:
-    def __init__(self, fname, lname, salary, experiance, manager):
-        self.fname = fname
-        self.lname = lname
-        self.salary = salary
-        self.experiance = experiance
-        self.manager = manager
-    
-    def __str__(self):
-        return "Hi! I am an employee"
 
+class Node:
+	def __init__(self, data):
+		self.data = data 
+		self.next = None 
 
-class developer(employee):
-    def __str__(self):
-        return "Hi! I am a developer"
+class LinkedList:
+	def __init__(self):
+		self.head = None
+		
+	def push(self, new_data):
+		new_node = Node(new_data)
+		new_node.next = self.head
+		self.head = new_node
 
+	def getNth(self, index):
+		current = self.head 
+		count = 0 
+		while (current):
+			if (count == index):
+				return current.data
+			count += 1
+			current = current.next
+		assert(false)
+		return 0;
 
-class designer(employee):
-    def __init__(self, effect_coefficient):
-        super().__init__(self, fname, lname, salary, experiance, manager)
-        self.effect_coefficient = effect_coefficient
-"""
-    def count_square(self):
-        return pi*self.x*self.y
+if __name__=='__main__':
 
-    def __str__(self):
-        return "Hi from circle!"
+	llist = LinkedList()
 
+	# Use push() to construct below list
+	# 1->12->1->4->1
+	llist.push(1);
+	llist.push(4);
+	llist.push(1);
+	llist.push(12);
+	llist.push(1);
 
-class Rectangle(Figure):
-    def count_square(self):
-        return self.x*self.y
-
-    def __str__(self):
-        return "Hi from rectangle!"
-
-k = [1, "a"]
-
-class SumError(Exception):
-    def __init__(self, value):
-        self.value = value
-
-    def __str__(self):
-        return str(self.value)
-
-
-def double_sum(array):
-    try:
-        return summa(array)*2
-    except SumError as err:
-        print("Error occurred while trying to sum over: " + str(err))
-
-def summa(array):
-    try:
-        a = 0
-        print(a)
-        for i in array:
-            a = a+i
-            print(a)
-        return a
-    except TypeError:
-        raise SumError(array)
-
-circle = Circle(1, 2)
-dot = Dot(1, 2)
-print(dot.x, dot.y)
-print(dot)
-print("Figure square: " + str(dot.count_square()))
-print(circle)
-print(type(circle))
-double_sum(k)
-"""
+	n = 3
+	print ("Element at index 3 is :", llist.getNth(n))
