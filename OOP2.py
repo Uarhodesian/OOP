@@ -17,7 +17,7 @@ class LinkedList:
 
 
 	def put(self,data):
-		new_node=node(data)
+		new_node=node()
 		cur=self.head
 		while cur.next!=None:
 			cur=cur.next
@@ -31,30 +31,6 @@ class LinkedList:
 			cur=cur.next
 		return total 
 
-	def get(self,index):
-		if index>=self.length():
-			print("ERROR: 'Get' Index out of range!")
-			return None
-		cur_idx=0
-		cur_node=self.head
-		while True:
-			cur_node=cur_node.next
-			if cur_idx==index: return cur_node.data
-			cur_idx+=1
-
-	def delete(self,index):
-		if index>=self.length():
-			print("ERROR: 'Erase' Index out of range!")
-			return 
-		cur_idx=0
-		cur_node=self.head
-		while True:
-			last_node=cur_node
-			cur_node=cur_node.next
-			if cur_idx==index:
-				last_node.next=cur_node.next
-				return
-			cur_idx+=1
 
 if __name__=='__main__':
 
@@ -62,9 +38,9 @@ if __name__=='__main__':
 
 	# Use push() to construct below list
 	# 1->12->1->4->1
-	llist.put(1);
-	llist.put(4);
-	llist.put(1);
-	llist.put(12);
-	llist.put(1);
+	llist.put(1)
+	llist.put(4)
+	llist.put(1)
+	llist.put(12)
+	llist.put(1)
 
