@@ -31,13 +31,13 @@ class LinkedList:
 		return total 
 
 	def get(self, index):
-		current = self.head 
-		count = 0 
-		while (current):
+		cur=self.head 
+		count=0 
+		while cur.next!=None:
 			if (count == index):
-				return current.data
+				return cur.data
 			count += 1
-			current = current.next
+			cur = cur.next
 		assert(false)
 		return 0;
 
