@@ -6,32 +6,55 @@
  d) indexOf(el) - first element = el
  e) size()
  """
-
-
-class Node:
-	def __init__(self, data):
-		self.data = data 
-		self.next = None 
+class node:
+	def __init__(self,data=None):
+		self.data=data
+		self.next=None
 
 class LinkedList:
 	def __init__(self):
-		self.head = None
-		
-	def push(self, new_data):
-		new_node = Node(new_data)
-		new_node.next = self.head
-		self.head = new_node
+		self.head=node()
 
-	def getNth(self, index):
-		current = self.head 
-		count = 0 
-		while (current):
-			if (count == index):
-				return current.data
-			count += 1
-			current = current.next
-		assert(false)
-		return 0;
+
+	def put(self,data):
+		new_node=node(data)
+		cur=self.head
+		while cur.next!=None:
+			cur=cur.next
+		cur.next=new_node
+
+	def size(self):
+		cur=self.head
+		total=0
+		while cur.next!=None:
+			total+=1
+			cur=cur.next
+		return total 
+
+	def get(self,index):
+		if index>=self.length():
+			print("ERROR: 'Get' Index out of range!")
+			return None
+		cur_idx=0
+		cur_node=self.head
+		while True:
+			cur_node=cur_node.next
+			if cur_idx==index: return cur_node.data
+			cur_idx+=1
+
+	def delete(self,index):
+		if index>=self.length():
+			print("ERROR: 'Erase' Index out of range!")
+			return 
+		cur_idx=0
+		cur_node=self.head
+		while True:
+			last_node=cur_node
+			cur_node=cur_node.next
+			if cur_idx==index:
+				last_node.next=cur_node.next
+				return
+			cur_idx+=1
 
 if __name__=='__main__':
 
@@ -39,11 +62,9 @@ if __name__=='__main__':
 
 	# Use push() to construct below list
 	# 1->12->1->4->1
-	llist.push(1);
-	llist.push(4);
-	llist.push(1);
-	llist.push(12);
-	llist.push(1);
+	llist.put(1);
+	llist.put(4);
+	llist.put(1);
+	llist.put(12);
+	llist.put(1);
 
-	n = 3
-	print ("Element at index 3 is :", llist.getNth(n))
