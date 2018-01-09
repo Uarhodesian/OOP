@@ -38,7 +38,8 @@ class employee:
         else:
             return self.salary       
     def __repr__(self):
-        return "employee('{}','{}','{}')".format(self.fname, self.lname, self.experiance)        
+        return "employee('{}','{}','{}')".format(self.fname, self.lname, self.experiance)
+
     def __str__(self):
         return "Hi! I am an employee"
 
@@ -66,18 +67,13 @@ class designer(employee):
 class manager(employee):
     count_dev = 0
     count_des = 0
-    count_emp = 0
+
     def __init__(self, fname, lname, salary, experiance, manager, employees=None):
         employee.__init__(self, fname, lname, salary, experiance, manager)     
         if employees is None:
             self.employees = []          
         else:
             self.employees = employees
-  
-    def count_emp(self):
-            for employees in self.employees:
-                count_emp += 1
-                print(count_emp)
 
     def add_emp(self, emp):
             if emp not in self.employees:
